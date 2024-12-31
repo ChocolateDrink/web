@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+	<head>
+		<title>Synapse Ui</title>
+
+		<link rel="stylesheet" href="style.css">
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+
+	<script src="script.js"></script>
+
+	<body>
+		<div id="main-container">
+			<div id="title-bar">
+				<span class="title-text">SYNAPSE</span>
+				<span class="version-text">UI 2.0.0 beta-34a</span>
+			</div>
+
+			<div id="tab-bar">
+				<div class="tab active">
+					<div class="tab-icon"></div>
+					Untitled/tab
+				</div>
+				<div class="tab">
+					<div class="tab-icon"></div>
+					Untitled/tab
+				</div>
+				<div class="tab">
+					<div class="tab-icon"></div>
+					Untitled/tab
+				</div>
+				<div class="tab">
+					<div class="tab-icon"></div>
+					Untitled/tab
+				</div>
+			</div>
+
+			<textarea id="editor" spellcheck="false">-- real synapse x :scream:</textarea>
+
+			<div id="button-bar">
+				<button class="button">Execute</button>
+				<button class="button">Clear</button>
+				<button class="button">Open</button>
+				<button class="button">Execute</button>
+				<button class="button">Save</button>
+			</div>
+		</div>
+	</body>
+
+	<script>
+		document.querySelectorAll('.tab').forEach(tab => {
+			tab.addEventListener('click', () => {
+				document.querySelector('.tab.active').classList.remove('active');
+				tab.classList.add('active');
+			});
+		});
+	</script>
+</html>
