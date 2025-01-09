@@ -303,6 +303,7 @@ core.messages = [];
 
 	// load saved messages
 	mainChat.addEventListener('keydown', (e) => {
+		if (e.key === 'Enter') lastAt = -1;
 		if (e.key !== 'ArrowUp' && e.key !== 'ArrowDown') return;
 
 		if (lastAt === -1) lastMsg = e.target.value;
