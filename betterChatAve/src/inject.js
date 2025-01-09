@@ -3,8 +3,8 @@
 // @version      20/12/2024
 // @description  tampermonkey extention to make chat ave sites better
 // @author       warmchocolatedrink
-// @match        https://www.chat-avenue.com/teen/
-// @match        https://www.teen-chat.org/chat/
+// @match        *://*.chat-avenue.com/*
+// @match        *://*.teen-chat.org/*
 // @run-at       document-start
 // ==/UserScript==
 
