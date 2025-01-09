@@ -5,7 +5,7 @@
 // @author       warmchocolatedrink
 // @match        https://www.chat-avenue.com/teen/
 // @match        https://www.teen-chat.org/chat/
-// @run-at       start
+// @run-at       document-start
 // ==/UserScript==
 
 (() => {
