@@ -210,7 +210,12 @@ core.messages = [];
 	addToggle('remove long messages');
 	addToggle('disable success notifs', core.hooks.disableNotifs);
 
-	addButton('clear dms', privateClear);
+	addButton('clear dms', () => {
+		privateClear();
+
+		const notifIcon = document.getElementById('notify_private');
+		if (notifIcon) notifIcon.style.display = 'none';
+	});
 
 	addLabel('click Insert to toggle this ui', true, false, 'rgb(0, 255, 0)');
 
@@ -403,6 +408,11 @@ core.messages = [];
 			const button = document.querySelector('.fmenu_name.gprivate');
 			if (button) button.click();
 		}, 460);
+	});
+
+	binds.add('dm close', 'P', () => {
+		const button = document.getElementById('private_close');
+		if (button) button.click();
 	});
 
 	binds.add('quick block', 'B', () => {
