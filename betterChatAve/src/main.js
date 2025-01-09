@@ -412,8 +412,7 @@ core.messages = [];
 	});
 
 	binds.add('dm close', 'P', () => {
-		const button = document.getElementById('private_close');
-		if (button) button.click();
+		togglePrivate(1);
 	});
 
 	binds.add('quick block', 'B', () => {
