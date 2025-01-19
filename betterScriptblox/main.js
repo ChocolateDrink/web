@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         scriptblox remover
+// @name         better scriptblox
 // @version      19/1/2025
 // @description  removes the annoying prompts
 // @author       warmchocolatedrink
