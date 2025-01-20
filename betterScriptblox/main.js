@@ -7,17 +7,9 @@
 // @run-at       document-start
 // ==/UserScript==
 
-const toRemove = [
-	'.w-full.bg-green-500'
-];
-
-let interval;
-
 const remove = () => {
-	toRemove.forEach(query => {
-		const button = document.querySelector(query);
-		if (button) button.click();
-	});
+	const button = document.querySelector('.w-full.bg-green-500');
+	if (button) button.click();
 };
 
 const click = () => {
@@ -25,16 +17,42 @@ const click = () => {
 	document?.body?.click();
 };
 
+let interval;
 const start = () => {
 	if (interval) clearInterval(interval);
 	interval = setInterval(() => {
 		remove();
 		click();
-		clearInterval(interval);
-	}, 1);
+	}, 100);
 };
 
 window.addEventListener('hashchange', start);
 window.addEventListener('popstate', start);
 
 start();
+
+document.addEventListener('DOMContentLoaded', () => {
+	const observer = new IntersectionObserver((entries, observer) => {
+		entries.forEach(entry => {
+			if (!entry.isIntersecting) return;
+			entry.target.click();
+		});
+	}, {
+		threshold: 0.1
+	});
+
+	new MutationObserver(mutations => {
+		mutations.forEach(mutation => {
+			mutation.addedNodes.forEach(node => {
+				if (!node.matches || !node.matches('.p-4.text-lg')) return;
+				observer.observe(node);
+			});
+		});
+	}).observe(document.body, {
+		childList: true,
+		subtree: true
+	});
+
+	const loadMore = document.querySelector('.p-4.text-lg');
+	observer.observe(loadMore);
+});
