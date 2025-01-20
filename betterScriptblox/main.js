@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         better scriptblox
 // @version      19/1/2025
-// @description  removes the annoying prompts
+// @description  makes scriptblox better
 // @author       warmchocolatedrink
 // @match        *://*.scriptblox.com/*
 // @run-at       document-start
