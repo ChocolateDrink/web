@@ -9,16 +9,12 @@
 
 const sites = ['youtube']; // add sites you want this to work on
 
-if (!sites.some(site => location.href.includes(site))) {
-	console.log('site not whitelisted');
-	throw new Error();
-}
-
 let visible = true;
+if (sites.some(site => location.href.includes(site))) {
+	document.addEventListener('keydown', (e) => {
+		if (e.key !== '\\') return;
 
-document.addEventListener('keydown', (e) => {
-	if (e.key !== '\\') return;
-
-	visible = !visible;
-	document.documentElement.style.cursor = visible ? 'auto' : 'none';
-});
+		visible = !visible;
+		document.documentElement.style.cursor = visible ? 'auto' : 'none';
+	});
+}
