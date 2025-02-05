@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         better chat avenue
-// @version      20/12/2024
+// @version      20/12/2025
 // @description  tampermonkey extention to make chat ave sites better
 // @author       warmchocolatedrink
 // @match        *://*.chat-avenue.com/*
